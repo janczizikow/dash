@@ -2,9 +2,29 @@ $font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
   'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
   'Segoe UI Symbol';
 
-// Breakpoints
-$xs: 0;
-$sm: 36em; //576px
-$md: 48em; //768px
-$lg: 62em; //992px
-$xl: 75em; //1200px
+// Grid breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+// Container max widths
+$container-max-widths: (
+  xs: 0,
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1200px
+);
+
+$grid-gutters: 2rem;
+$grid-columns: 12;
+
+@mixin media($width) {
+  @media only screen and (min-width: $width) {
+    @content;
+  }
+}

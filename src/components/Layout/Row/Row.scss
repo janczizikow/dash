@@ -1,0 +1,55 @@
+@import '../../../shared.scss';
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__gutters {
+    margin-left: -$grid-gutters / 2;
+    margin-right: -$grid-gutters / 2;
+
+    // FIXME: this could be a problem when scoping the styles
+    & > .col {
+      padding: 0 $grid-gutters / 2;
+    }
+  }
+
+  &__reverse {
+    flex-direction: reverse;
+  }
+
+  &__start {
+    justify-content: flex-start;
+    text-align: start;
+  }
+
+  &__center {
+    justify-content: center;
+    text-align: center;
+  }
+
+  &__end {
+    justify-content: flex-end;
+    text-align: end;
+  }
+
+  &__top {
+    align-items: flex-start;
+  }
+
+  &__middle {
+    align-items: center;
+  }
+
+  &__bottom {
+    align-items: flex-end;
+  }
+
+  &__around {
+    justify-content: space-around;
+  }
+
+  &__between {
+    justify-content: space-between;
+  }
+}
