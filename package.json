@@ -21,7 +21,7 @@
       "prettier --single-quote --write",
       "git add"
     ],
-    "src/**/*.{scss}": [
+    "src/**/*.{scss,css}": [
       "stylelint --config=.stylelintrc --fix",
       "prettier --config .prettierrc --write",
       "git add"
