@@ -10,7 +10,13 @@
   max-width: percentage($size / $columns);
 }
 
-// TODO: Add offsets + order classes
+@mixin make-offset($size, $columns: $grid-columns) {
+  margin-left: percentage($size / $columns);
+}
+
+// FIXME: Offsets!!! => should start with 0 to reset offset from other breakpoints
+//                   => should
+// TODO: Order classes => check if need to add more
 @each $breakpoint, $value in $grid-breakpoints {
   $prefix: $breakpoint;
 
@@ -20,14 +26,30 @@
         .col-#{$prefix}-#{$i} {
           @include make-col($i, $grid-columns);
         }
+
+        .col-#{$prefix}-offset-#{$i - 1} {
+          @include make-offset($i - 1, $grid-columns);
+        }
       }
     }
-  }
 
-  @else {
+    @include media($value) {
+      @for $j from 0 through $grid-columns {
+        .col-#{$prefix}-order-#{$j} {
+          order: $j;
+        }
+      }
+    }
+  } @else {
     @for $i from 1 through $grid-columns {
       .col-#{$prefix}-#{$i} {
         @include make-col($i, $grid-columns);
+      }
+    }
+
+    @for $i from 0 through ($grid-columns - 1) {
+      .col-#{$prefix}-offset-#{$i} {
+        @include make-offset($i, $grid-columns);
       }
     }
   }

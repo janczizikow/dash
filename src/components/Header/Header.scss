@@ -1,0 +1,48 @@
+@import '../../shared.scss';
+
+.header {
+  background-color: #252526;
+
+  &--fixed {
+    top: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1080;
+  }
+
+  &__inner {
+    height: 3.65rem;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: #fff;
+    font-size: 1.125rem;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  &__links {
+    display: none;
+    visibility: hidden;
+
+    @include media(map-get($grid-breakpoints, md)) {
+      display: flex;
+      height: 100%;
+      visibility: visible;
+    }
+  }
+
+  &__link-item {
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}

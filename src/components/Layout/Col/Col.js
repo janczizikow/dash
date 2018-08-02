@@ -15,6 +15,11 @@ const propTypes = {
   mdOffset: PropTypes.number,
   lgOffset: PropTypes.number,
   xlOffset: PropTypes.number,
+  xsOrder: PropTypes.number,
+  smOrder: PropTypes.number,
+  mdOrder: PropTypes.number,
+  lgOrder: PropTypes.number,
+  xlOrder: PropTypes.number,
 };
 
 const defaultProps = {
@@ -34,20 +39,29 @@ const Col = props => {
     mdOffset,
     lgOffset,
     xlOffset,
+    xsOrder,
+    smOrder,
+    mdOrder,
+    lgOrder,
+    xlOrder,
     children,
     ...attributes
   } = props;
 
-  const classes = ['col'];
-
   // TODO: think of a better solution?
-  // handle cases for offsets
+  const classes = ['col'];
   Object.keys(props).forEach(key => {
     if (
       Object.prototype.hasOwnProperty.call(props, key) &&
       /(xs|sm|md|lg|xl)/gi.test(key)
     ) {
-      classes.push(`col-${key}-${props[key]}`);
+      /[A-Z]/g.test(key)
+        ? classes.push(
+            `col-${key.substring(0, 2)}-${key
+              .substring(2, key.length)
+              .toLowerCase()}-${props[key]}`
+          )
+        : classes.push(`col-${key}-${props[key]}`);
     }
   });
 
