@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 
 import './Col.css';
 
 const propTypes = {
   tag: PropTypes.string,
+  className: PropTypes.string,
   xs: PropTypes.number,
   sm: PropTypes.number,
   md: PropTypes.number,
@@ -29,6 +31,7 @@ const defaultProps = {
 const Col = props => {
   const {
     tag: Tag,
+    className,
     xs,
     sm,
     md,
@@ -44,7 +47,6 @@ const Col = props => {
     mdOrder,
     lgOrder,
     xlOrder,
-    children,
     ...attributes
   } = props;
 
@@ -65,11 +67,7 @@ const Col = props => {
     }
   });
 
-  return (
-    <Tag {...attributes} className={classes.join(' ').trim()}>
-      {children}
-    </Tag>
-  );
+  return <Tag {...attributes} className={cx(classes, className)} />;
 };
 
 Col.propTypes = propTypes;

@@ -1,27 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
+
 import './Container.css';
 
 const propTypes = {
   tag: PropTypes.string,
+  className: PropTypes.string,
   fluid: PropTypes.bool,
-  children: PropTypes.node.isRequired,
 };
 
 const defaultProps = {
   tag: 'div',
-  fluid: false,
 };
 
 const Container = props => {
-  const { tag: Tag, fluid, children, ...attributes } = props;
-  const classes = fluid ? 'container__fluid' : 'container';
+  const { tag: Tag, fluid, className, ...attributes } = props;
+  const classes = cx(fluid ? 'container__fluid' : 'container', className);
 
-  return (
-    <Tag {...attributes} className={classes}>
-      {children}
-    </Tag>
-  );
+  return <Tag {...attributes} className={classes} />;
 };
 
 Container.propTypes = propTypes;
