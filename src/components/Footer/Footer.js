@@ -1,10 +1,12 @@
 import React from 'react';
 import { Container, Row } from '../Layout';
 
+import './Footer.css';
+
 const Footer = props => (
   <div className="footer">
     <Container>
-      <Row between>
+      <Row gutters={false} between>
         <p>
           Designed and built by{' '}
           <a
