@@ -9,7 +9,20 @@
 body {
   margin: 0;
   padding: 0;
+  color: $dark;
+  background-color: $grey;
   font-family: $font-stack;
   font-size: 1rem;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: $primary;
+  text-decoration: none;
+}
+
+::selection {
+  background-color: $primary;
+  color: $white;
 }
