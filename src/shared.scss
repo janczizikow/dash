@@ -30,6 +30,9 @@ $container-max-widths: (
 $grid-gutters: 2rem;
 $grid-columns: 12;
 
+$header-height: 3.75rem;
+$side-menu-width: 256px;
+
 @mixin media($width) {
   @media only screen and (min-width: $width) {
     @content;

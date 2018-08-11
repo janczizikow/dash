@@ -10,7 +10,7 @@ body {
   margin: 0;
   padding: 0;
   color: $dark;
-  background-color: $grey;
+  background-color: $white;
   font-family: $font-stack;
   font-size: 1rem;
   line-height: 1.5;
@@ -20,6 +20,24 @@ body {
 a {
   color: $primary;
   text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.wrapper {
+  padding: 20px;
+  width: 100%;
+  min-height: calc(100vh - #{$header-height});
+  height: 100%;
+  background-color: $grey;
 }
 
 ::selection {

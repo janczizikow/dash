@@ -1,7 +1,7 @@
 @import '../../shared.scss';
 
 .header {
-  background-color: #252526;
+  background-color: $white;
 
   &--fixed {
     top: 0;
@@ -11,17 +11,34 @@
   }
 
   &__inner {
-    height: 3.65rem;
+    height: $header-height;
   }
 
   &__logo {
     display: flex;
     align-items: center;
     height: 100%;
-    color: #fff;
+    color: $dark;
     font-size: 1.125rem;
     font-weight: bold;
     text-decoration: none;
+  }
+
+  &__toggle {
+    padding: 0;
+    // width: 24px;
+    height: 100%;
+    background-color: transparent;
+    border: 0;
+    border-radius: 3px;
+    outline: 0;
+    color: $dark;
+    cursor: pointer;
+
+    @include media(map-get($grid-breakpoints, md)) {
+      display: none;
+      visibility: hidden;
+    }
   }
 
   &__links {
@@ -40,9 +57,14 @@
     display: flex;
     align-items: center;
     height: 100%;
+    color: $dark;
 
     &:last-child {
       padding-right: 0;
     }
+  }
+
+  &__link-item--active {
+    font-weight: bold;
   }
 }
