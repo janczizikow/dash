@@ -1,14 +1,18 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
 import Spinner from '../components/Spinner';
 
-it('renders without crashing', () => {
-  const spinner = shallow(<Spinner />);
-  expect(spinner.html()).toBe('<div class="spinner"></div>');
-});
+describe('<Spinner />', () => {
+  let wrapper;
 
-it('should adjust the class with a prop', () => {
-  const spinner = shallow(<Spinner light />);
-  expect(spinner.html()).toBe('<div class="spinner--light"></div>');
+  beforeEach(() => {
+    wrapper = shallow(<Spinner />);
+  });
+
+  it('renders without crashing', () => {
+    expect(wrapper).toHaveLength(1);
+  });
+
+  it('adjust the class with a light prop', () => {
+    wrapper.setProps({ light: true });
+    expect(wrapper.hasClass('Spinner--light')).toBeTruthy();
+  });
 });

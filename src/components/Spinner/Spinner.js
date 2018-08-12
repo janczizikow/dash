@@ -9,7 +9,7 @@ const propTypes = {
 
 const Spinner = props => {
   const { light, ...attributes } = props;
-  const classes = light ? 'spinner--light' : 'spinner';
+  const classes = light ? 'spinner--light' : 'Spinner';
   return <div className={classes} {...attributes} />;
 };
 
