@@ -1,33 +1,32 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-// import toJson from 'enzyme-to-json';
-
 import { Container } from '../components/Layout';
 
-describe('Container', () => {
+describe('<Container />', () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<Container />);
+  });
   it('renders without crashing', () => {
-    const container = shallow(<Container />);
-    expect(container.html()).toBe('<div class="container"></div>');
+    expect(wrapper).toHaveLength(1);
   });
 
   it('should render with fluid class', () => {
-    const container = shallow(<Container fluid />);
-    expect(container.html()).toBe('<div class="container__fluid"></div>');
+    wrapper.setProps({ fluid: true });
+    expect(wrapper.hasClass('Container__fluid')).toBeTruthy();
   });
 
   it('should render children', () => {
-    const container = shallow(<Container>child</Container>);
-    expect(container.text()).toBe('child');
+    wrapper.setProps({ children: 'child' });
+    expect(wrapper.text()).toBe('child');
   });
 
   it('should render a custom tag', () => {
-    const container = shallow(<Container tag="main" />);
-    expect(container.html()).toBe('<main class="container"></main>');
+    wrapper.setProps({ tag: 'main' });
+    expect(wrapper.type()).toBe('main');
   });
 
   it('should add additional classes', () => {
-    const container = shallow(<Container className="class" />);
-    expect(container.hasClass('container')).toBe(true);
-    expect(container.hasClass('class')).toBe(true);
+    wrapper.setProps({ className: 'extra' });
+    expect(wrapper.find('.Container').hasClass('extra')).toBeTruthy();
   });
 });

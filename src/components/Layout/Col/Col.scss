@@ -1,6 +1,6 @@
 @import '../../../shared.scss';
 
-.col {
+.Col {
   flex: 1 0 0;
   max-width: 100%;
 }
@@ -23,11 +23,11 @@
   @if $value > 0 {
     @for $i from 1 through $grid-columns {
       @include media($value) {
-        .col-#{$prefix}-#{$i} {
+        .Col-#{$prefix}-#{$i} {
           @include make-col($i, $grid-columns);
         }
 
-        .col-#{$prefix}-offset-#{$i - 1} {
+        .Col-#{$prefix}-offset-#{$i - 1} {
           @include make-offset($i - 1, $grid-columns);
         }
       }
@@ -35,20 +35,20 @@
 
     @include media($value) {
       @for $j from 0 through $grid-columns {
-        .col-#{$prefix}-order-#{$j} {
+        .Col-#{$prefix}-order-#{$j} {
           order: $j;
         }
       }
     }
   } @else {
     @for $i from 1 through $grid-columns {
-      .col-#{$prefix}-#{$i} {
+      .Col-#{$prefix}-#{$i} {
         @include make-col($i, $grid-columns);
       }
     }
 
     @for $i from 0 through ($grid-columns - 1) {
-      .col-#{$prefix}-offset-#{$i} {
+      .Col-#{$prefix}-offset-#{$i} {
         @include make-offset($i, $grid-columns);
       }
     }

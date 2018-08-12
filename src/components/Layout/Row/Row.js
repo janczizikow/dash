@@ -43,17 +43,17 @@ const Row = props => {
 
   const classes = cx(
     {
-      row: true,
-      row__gutters: gutters,
-      row__reverse: reverse,
-      row__start: start,
-      row__center: center,
-      row__end: end,
-      row__top: top,
-      row__middle: middle,
-      row__bottom: bottom,
-      row__around: around,
-      row__between: between,
+      Row: true,
+      Row__gutters: gutters,
+      Row__reverse: reverse,
+      Row__start: start,
+      Row__center: center,
+      Row__end: end,
+      Row__top: top,
+      Row__middle: middle,
+      Row__bottom: bottom,
+      Row__around: around,
+      Row__between: between,
     },
     className
   );

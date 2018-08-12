@@ -16,7 +16,7 @@ const defaultProps = {
 
 const Container = props => {
   const { tag: Tag, fluid, className, ...attributes } = props;
-  const classes = cx(fluid ? 'container__fluid' : 'container', className);
+  const classes = cx(fluid ? 'Container__fluid' : 'Container', className);
 
   return <Tag {...attributes} className={classes} />;
 };

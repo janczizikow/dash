@@ -51,7 +51,7 @@ const Col = props => {
   } = props;
 
   // TODO: think of a better solution?
-  const classes = ['col'];
+  const classes = ['Col'];
   Object.keys(props).forEach(key => {
     if (
       Object.prototype.hasOwnProperty.call(props, key) &&
@@ -59,11 +59,11 @@ const Col = props => {
     ) {
       /[A-Z]/g.test(key)
         ? classes.push(
-            `col-${key.substring(0, 2)}-${key
+            `Col-${key.substring(0, 2)}-${key
               .substring(2, key.length)
               .toLowerCase()}-${props[key]}`
           )
-        : classes.push(`col-${key}-${props[key]}`);
+        : classes.push(`Col-${key}-${props[key]}`);
     }
   });
 

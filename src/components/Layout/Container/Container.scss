@@ -1,14 +1,14 @@
 @import '../../../shared.scss';
 
-.container,
-.container__fluid {
+.Container,
+.Container__fluid {
   padding: 0 $grid-gutters / 2;
   margin: 0 auto;
   width: 100%;
 }
 
 @each $breakpoint, $val in $grid-breakpoints {
-  .container {
+  .Container {
     @if $val > 0 {
       @include media($val) {
         @each $container-breakpoint, $width in $container-max-widths {

@@ -1,53 +1,50 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
 import { Row } from '../components/Layout';
 
-describe('Row', () => {
+describe('<Row />', () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<Row />);
+  });
   it('renders without crashing', () => {
-    const row = shallow(<Row />);
-    expect(row.html()).toBe('<div class="row row__gutters"></div>');
+    expect(wrapper).toHaveLength(1);
   });
 
   it('should render childeren', () => {
-    const row = shallow(<Row>child</Row>);
-    expect(row.text()).toBe('child');
-  });
-
-  it('should add classes from props', () => {
-    const row = shallow(
-      <Row
-        gutters={false}
-        reverse
-        start
-        center
-        end
-        top
-        middle
-        bottom
-        around
-        between
-      />
-    );
-    expect(row.hasClass('row__reverse')).toBeTruthy();
-    expect(row.hasClass('row__start')).toBeTruthy();
-    expect(row.hasClass('row__center')).toBeTruthy();
-    expect(row.hasClass('row__end')).toBeTruthy();
-    expect(row.hasClass('row__top')).toBeTruthy();
-    expect(row.hasClass('row__middle')).toBeTruthy();
-    expect(row.hasClass('row__bottom')).toBeTruthy();
-    expect(row.hasClass('row__around')).toBeTruthy();
-    expect(row.hasClass('row__between')).toBeTruthy();
+    wrapper.setProps({ children: 'child' });
+    expect(wrapper.text()).toBe('child');
   });
 
   it('should render a custom tag', () => {
-    const row = shallow(<Row tag="section" gutters={false} />);
-    expect(row.html()).toBe('<section class="row"></section>');
+    wrapper.setProps({ tag: 'section' });
+    expect(wrapper.type()).toBe('section');
   });
 
   it('should add additional classes', () => {
-    const row = shallow(<Row className="extra" />);
-    expect(row.hasClass('row')).toBeTruthy();
-    expect(row.hasClass('extra')).toBeTruthy();
+    wrapper.setProps({ className: 'extra' });
+    expect(wrapper.find('.Row').hasClass('extra')).toBeTruthy();
+  });
+  it('should add classes from props', () => {
+    wrapper.setProps({
+      gutters: false,
+      reverse: true,
+      start: true,
+      center: true,
+      end: true,
+      top: true,
+      middle: true,
+      bottom: true,
+      around: true,
+      between: true,
+    });
+    expect(wrapper.hasClass('Row__reverse')).toBeTruthy();
+    expect(wrapper.hasClass('Row__start')).toBeTruthy();
+    expect(wrapper.hasClass('Row__center')).toBeTruthy();
+    expect(wrapper.hasClass('Row__end')).toBeTruthy();
+    expect(wrapper.hasClass('Row__top')).toBeTruthy();
+    expect(wrapper.hasClass('Row__middle')).toBeTruthy();
+    expect(wrapper.hasClass('Row__bottom')).toBeTruthy();
+    expect(wrapper.hasClass('Row__around')).toBeTruthy();
+    expect(wrapper.hasClass('Row__between')).toBeTruthy();
   });
 });
