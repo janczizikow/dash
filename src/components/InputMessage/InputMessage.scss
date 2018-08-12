@@ -1,0 +1,16 @@
+@import '../../shared.scss';
+
+.InputMessage {
+  margin-top: 0.25rem;
+  display: block;
+  width: 100%;
+  font-size: 80%;
+
+  &__valid {
+    color: $success;
+  }
+
+  &__invalid {
+    color: $error;
+  }
+}
