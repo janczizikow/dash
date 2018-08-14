@@ -32,12 +32,17 @@ describe('<Button />', () => {
 
   it('should add outline class when given a prop', () => {
     wrapper.setProps({ outline: true });
-    expect(wrapper.find('.Btn').hasClass('Btn--outline')).toBeTruthy();
+    expect(wrapper.find('.Btn').hasClass('Btn--outline-primary')).toBeTruthy();
   });
 
   it('should add rounded class when given a prop', () => {
     wrapper.setProps({ rounded: true });
     expect(wrapper.find('.Btn').hasClass('Btn--rounded')).toBeTruthy();
+  });
+
+  it('should add a color class when given a prop', () => {
+    wrapper.setProps({ color: 'secondary' });
+    expect(wrapper.find('.Btn').hasClass('Btn--secondary')).toBeTruthy();
   });
 
   it('should add link class when given a prop', () => {

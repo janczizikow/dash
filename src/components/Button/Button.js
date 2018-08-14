@@ -14,7 +14,11 @@ const propTypes = {
   outline: PropTypes.bool,
   rounded: PropTypes.bool,
   loading: PropTypes.bool,
-  color: PropTypes.color,
+  color: PropTypes.oneOf(['primary', 'secondary', 'success', 'error', 'dark']),
+};
+
+const defaultProps = {
+  color: 'primary',
 };
 
 class Button extends Component {
@@ -41,14 +45,14 @@ class Button extends Component {
     } = this.props;
 
     const Tag = to ? Link : 'button';
+
     const classes = cx(
       'Btn',
       block && 'Btn--block',
-      link && 'Btn--link',
-      outline && 'Btn--outline',
       rounded && 'Btn--rounded',
-      loading && 'Btn--loading',
-      color && `Btn--${color}`,
+      outline ? `Btn--outline-${color}` : `Btn--${color}`,
+      loading && `Btn--loading Btn--loading-${color}`,
+      link && 'Btn--link',
       className
     );
 
@@ -65,5 +69,6 @@ class Button extends Component {
 }
 
 Button.propTypes = propTypes;
+Button.defaultProps = defaultProps;
 
 export default Button;
