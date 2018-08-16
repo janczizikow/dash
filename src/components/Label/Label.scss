@@ -1,0 +1,28 @@
+@import '../../shared.scss';
+
+.Label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+
+  &--inline-positon {
+    margin-right: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  &--bold {
+    font-weight: bold;
+  }
+
+  &--block {
+    display: block;
+    width: 100%;
+  }
+
+  &--error {
+    color: $error;
+  }
+
+  &--hidden {
+    display: none;
+  }
+}
