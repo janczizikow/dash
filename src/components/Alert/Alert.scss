@@ -1,0 +1,53 @@
+@import '../../shared.scss';
+
+.Alert {
+  position: relative;
+  padding: 0.875rem 1.5rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+
+  @include clearfix;
+
+  &--dismiss {
+    padding-right: 4rem;
+  }
+
+  &__toggle {
+    position: absolute;
+    padding: 0 1.5rem;
+    display: flex;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+  }
+
+  @each $color, $value in $color-map {
+    &--#{$color} {
+      color: $value;
+      background: rgba($value, 0.1);
+    }
+
+    &__toggle-#{$color} {
+      color: $value;
+    }
+  }
+}
+
+.Alert-fade-enter {
+  opacity: 0;
+
+  &-active {
+    opacity: 1;
+    transition: opacity 0.15s linear;
+  }
+}
+
+.Alert-fade-exit-active {
+  opacity: 0;
+  transition: opacity 0.15s linear;
+}
