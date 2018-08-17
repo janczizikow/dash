@@ -47,7 +47,11 @@ $header-height: 3.75rem;
 $side-menu-width: 256px;
 
 @mixin media($width) {
-  @media only screen and (min-width: $width) {
+  @if $width > 0 {
+    @media only screen and (min-width: $width) {
+      @content;
+    }
+  } @else {
     @content;
   }
 }

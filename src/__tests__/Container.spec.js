@@ -10,11 +10,6 @@ describe('<Container />', () => {
     expect(wrapper).toHaveLength(1);
   });
 
-  it('should render with fluid class', () => {
-    wrapper.setProps({ fluid: true });
-    expect(wrapper.hasClass('Container__fluid')).toBeTruthy();
-  });
-
   it('should render children', () => {
     wrapper.setProps({ children: 'child' });
     expect(wrapper.text()).toBe('child');
@@ -28,5 +23,10 @@ describe('<Container />', () => {
   it('should add additional classes', () => {
     wrapper.setProps({ className: 'extra' });
     expect(wrapper.find('.Container').hasClass('extra')).toBeTruthy();
+  });
+
+  it('should add fluid class when given a prop', () => {
+    wrapper.setProps({ fluid: true });
+    expect(wrapper.hasClass('Container__fluid')).toBeTruthy();
   });
 });

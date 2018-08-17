@@ -51,23 +51,26 @@ const Col = props => {
   } = props;
 
   // TODO: think of a better solution?
-  const classes = ['Col'];
+  const colClasses = ['Col'];
+
   Object.keys(props).forEach(key => {
     if (
       Object.prototype.hasOwnProperty.call(props, key) &&
       /(xs|sm|md|lg|xl)/gi.test(key)
     ) {
       /[A-Z]/g.test(key)
-        ? classes.push(
+        ? colClasses.push(
             `Col-${key.substring(0, 2)}-${key
               .substring(2, key.length)
               .toLowerCase()}-${props[key]}`
           )
-        : classes.push(`Col-${key}-${props[key]}`);
+        : colClasses.push(`Col-${key}-${props[key]}`);
     }
   });
 
-  return <Tag {...attributes} className={cx(classes, className)} />;
+  const classes = cx(colClasses, className);
+
+  return <Tag {...attributes} className={classes} />;
 };
 
 Col.propTypes = propTypes;

@@ -7,14 +7,20 @@
   width: 100%;
 }
 
-@each $breakpoint, $val in $grid-breakpoints {
+@function returnwidth($width) {
+  @return if($width > 0, $width, 100%);
+}
+
+// Nested loop:
+// Lopping through grid breakpoints
+//   looping through container max-widths
+//      if the prefixes match, adding a max-width
+@each $bp, $val in $grid-breakpoints {
   .Container {
-    @if $val > 0 {
-      @include media($val) {
-        @each $container-breakpoint, $width in $container-max-widths {
-          @if $container-breakpoint == $breakpoint {
-            max-width: $width;
-          }
+    @include media($val) {
+      @each $c-breakpoint, $width in $container-max-widths {
+        @if $c-breakpoint == $bp {
+          max-width: returnwidth($width);
         }
       }
     }

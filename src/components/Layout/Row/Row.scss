@@ -5,7 +5,6 @@
   flex-wrap: wrap;
 
   &__gutters {
-    // TODO: research if this is really needed (remove padding from container and keep this)?
     margin-left: -$grid-gutters / 2;
     margin-right: -$grid-gutters / 2;
 
