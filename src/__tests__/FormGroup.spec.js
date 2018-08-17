@@ -1,12 +1,13 @@
-import React from 'react';
-import { shallow } from 'enzyme';
-
 import FormGroup from '../components/FormGroup';
 
-describe('FormGroup', () => {
+describe('<FormGroup />', () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<FormGroup />);
+  });
   it('should render without crashing', () => {
-    const formGroup = shallow(<FormGroup />);
-    expect(formGroup.html()).toBe('<div class="form__group"></div>');
+    expect(wrapper).toHaveLength(1);
   });
 
   it('should add inline class when given a prop', () => {
@@ -16,8 +17,8 @@ describe('FormGroup', () => {
   });
 
   it('should add additional classnames', () => {
-    const formGroup = shallow(<FormGroup className="extra" />);
-    expect(formGroup.hasClass('form__group')).toBeTruthy();
-    expect(formGroup.hasClass('extra')).toBeTruthy();
+    wrapper.setProps({ className: 'extra' });
+    expect(wrapper.hasClass('form__group')).toBeTruthy();
+    expect(wrapper.hasClass('extra')).toBeTruthy();
   });
 });
