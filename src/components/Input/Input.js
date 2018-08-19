@@ -11,11 +11,20 @@ const propTypes = {
   invalid: PropTypes.bool,
   valid: PropTypes.bool,
   className: PropTypes.string,
+  color: PropTypes.oneOf([
+    'primary',
+    'secondary',
+    'success',
+    'error',
+    'dark',
+    'grey',
+  ]),
 };
 
 const defaultProps = {
   tag: 'input',
   type: 'text',
+  color: 'primary',
 };
 
 class Input extends Component {
@@ -32,13 +41,18 @@ class Input extends Component {
       block,
       invalid,
       valid,
+      color,
       className,
       ...attributes
     } = this.props;
 
     const classes = cx(
-      type === 'radio' || type === 'checkbox' ? 'Input--check' : 'Input',
-      block && 'Input--block',
+      type !== 'submit'
+        ? type === 'radio' || type === 'checkbox'
+          ? 'Input--check'
+          : 'Input'
+        : `Btn Btn--${color}`,
+      type !== 'submit' ? block && 'Input--block' : 'Btn--block',
       invalid && 'Input--error',
       valid && 'Input--success',
       className
@@ -50,7 +64,9 @@ class Input extends Component {
 
     if (
       attributes.children &&
-      (Tag === 'input' || type === 'radio' || type === 'checkbox')
+      ((Tag === 'input' && type !== 'submit') ||
+        type === 'radio' ||
+        type === 'checkbox')
     ) {
       delete attributes.children;
     }
