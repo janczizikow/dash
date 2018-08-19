@@ -28,6 +28,16 @@ describe('<Label />', () => {
     expect(wrapper.hasClass('Label--block')).toBeTruthy();
   });
 
+  it('should add hidden attribute if given a prop', () => {
+    wrapper.setProps({ hidden: true });
+    expect(wrapper.props()).toHaveProperty('hidden');
+  });
+
+  it('should add bold class when given a prop', () => {
+    wrapper.setProps({ bold: true });
+    expect(wrapper.hasClass('Label--bold')).toBeTruthy();
+  });
+
   it('should add disabled class when given a prop', () => {
     wrapper.setProps({ disabled: true });
     expect(wrapper.hasClass('Label--disabled')).toBeTruthy();
