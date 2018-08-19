@@ -1,6 +1,6 @@
-$font-stack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-  'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-  'Segoe UI Symbol';
+$font-stack: 'Avenir next', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+  Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji',
+  'Segoe UI Emoji', 'Segoe UI Symbol';
 
 $primary: #5757ff;
 $secondary: #ff61ab;
@@ -20,6 +20,7 @@ $color-map: (
   success: $success,
   error: $error,
   dark: $dark,
+  grey: $grey-text,
 );
 
 // Grid breakpoints
