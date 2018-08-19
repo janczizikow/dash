@@ -20,10 +20,10 @@
 
 .Overlay--fade-enter-active {
   opacity: 1;
-  transition: opacity 1s ease 0.1s;
+  transition: opacity 0.3s ease;
 }
 
 .Overlay--fade-exit {
   opacity: 0;
-  transition: opacity 1s ease;
+  transition: opacity 0.3s ease;
 }

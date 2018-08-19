@@ -27,6 +27,6 @@ describe('<Overlay />', () => {
     wrapper.setProps({ show: true });
     setTimeout(() => {
       expect(wrapper.contains('.Overlay')).toBeTruthy();
-    }, 1100);
+    }, 350);
   });
 });

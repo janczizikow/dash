@@ -17,7 +17,13 @@ const Overlay = props => {
   const classes = cx('Overlay', light && 'Overlay--light', className);
 
   return (
-    <CSSTransition in={show} timeout={100} classNames="Overlay--fade">
+    <CSSTransition
+      mountOnEnter
+      unmountOnExit
+      in={show}
+      timeout={300}
+      classNames="Overlay--fade"
+    >
       <div className={classes} {...attributes} />
     </CSSTransition>
   );
