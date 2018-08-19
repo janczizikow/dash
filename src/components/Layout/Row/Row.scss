@@ -9,7 +9,7 @@
     margin-right: -$grid-gutters / 2;
 
     // FIXME: this could be a problem when scoping the styles
-    & > .col {
+    & > .Col {
       padding: 0 $grid-gutters / 2;
     }
   }
