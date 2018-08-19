@@ -28,6 +28,16 @@ describe('<Label />', () => {
     expect(wrapper.hasClass('Label--block')).toBeTruthy();
   });
 
+  it('should add disabled class when given a prop', () => {
+    wrapper.setProps({ disabled: true });
+    expect(wrapper.hasClass('Label--disabled')).toBeTruthy();
+  });
+
+  it('should add check class when given a prop', () => {
+    wrapper.setProps({ check: true });
+    expect(wrapper.hasClass('Label--check')).toBeTruthy();
+  });
+
   it('should add invalid class when given a prop', () => {
     wrapper.setProps({ invalid: true });
     expect(wrapper.hasClass('Label--error')).toBeTruthy();

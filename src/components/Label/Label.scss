@@ -9,6 +9,14 @@
     margin-bottom: 0;
   }
 
+  &--check {
+    margin-bottom: 0;
+  }
+
+  &--disabled {
+    color: $grey-text;
+  }
+
   &--bold {
     font-weight: bold;
   }

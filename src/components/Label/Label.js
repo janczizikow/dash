@@ -16,6 +16,8 @@ const propTypes = {
     PropTypes.func,
     PropTypes.string,
   ]),
+  disabled: PropTypes.bool,
+  check: PropTypes.bool,
 };
 
 /* https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-for.md */
@@ -29,6 +31,8 @@ const Label = props => {
     bold,
     invalid,
     className,
+    disabled,
+    check,
     ...attributes
   } = props;
   const classes = cx(
@@ -37,6 +41,8 @@ const Label = props => {
     hidden && 'Label--hidden',
     bold && 'Label--bold',
     invalid && 'Label--error',
+    disabled && 'Label--disabled',
+    check && 'Label--check',
     className
   );
   return (
