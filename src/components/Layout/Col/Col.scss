@@ -14,6 +14,11 @@
   margin-left: percentage($size / $columns);
 }
 
+@mixin hidden {
+  display: none;
+  visibility: hidden;
+}
+
 // style-lint-disable at-rule-empty-line-before
 @each $breakpoint, $value in $grid-breakpoints {
   $prefix: $breakpoint;
@@ -37,6 +42,13 @@
       .Col-#{$prefix}-order-#{$j} {
         order: $j;
       }
+    }
+  }
+
+  // generate hidden classes
+  @include media-max(map-get-next($breakpoint)) {
+    .Col-hidden-#{$prefix} {
+      @include hidden;
     }
   }
 }

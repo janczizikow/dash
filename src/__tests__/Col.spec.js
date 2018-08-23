@@ -11,18 +11,18 @@ describe('<Col />', () => {
     expect(wrapper).toHaveLength(1);
   });
 
-  it('should render children', () => {
+  it('renders children', () => {
     wrapper.setProps({ children: 'child' });
     expect(wrapper.text()).toBe('child');
   });
 
-  it('should add additional classes', () => {
+  it('adds additional classes', () => {
     wrapper.setProps({ className: 'extra' });
     expect(wrapper.hasClass('Col')).toBeTruthy();
     expect(wrapper.hasClass('extra')).toBeTruthy();
   });
 
-  it('should render a custom tag', () => {
+  it('renders a custom tag', () => {
     wrapper.setProps({ tag: 'form' });
     expect(wrapper.type()).toBe('form');
   });
@@ -41,5 +41,10 @@ describe('<Col />', () => {
   it('adds order class when given a prop', () => {
     wrapper.setProps({ xsOrder: 2 });
     expect(wrapper.hasClass('Col-xs-order-2')).toBeTruthy();
+  });
+
+  it('adds hidden class when given a prop', () => {
+    wrapper.setProps({ hiddenXs: true });
+    expect(wrapper.hasClass('Col-hidden-xs')).toBeTruthy();
   });
 });

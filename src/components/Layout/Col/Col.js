@@ -22,6 +22,11 @@ const propTypes = {
   mdOrder: PropTypes.number,
   lgOrder: PropTypes.number,
   xlOrder: PropTypes.number,
+  hiddenXs: PropTypes.bool,
+  hiddenSm: PropTypes.bool,
+  hiddenMd: PropTypes.bool,
+  hiddenLg: PropTypes.bool,
+  hiddenXl: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -47,6 +52,11 @@ const Col = props => {
     mdOrder,
     lgOrder,
     xlOrder,
+    hiddenXs,
+    hiddenSm,
+    hiddenMd,
+    hiddenLg,
+    hiddenXl,
     ...attributes
   } = props;
 
@@ -58,13 +68,21 @@ const Col = props => {
       Object.prototype.hasOwnProperty.call(props, key) &&
       /(xs|sm|md|lg|xl)/gi.test(key)
     ) {
-      /[A-Z]/g.test(key)
-        ? colClasses.push(
-            `Col-${key.substring(0, 2)}-${key
-              .substring(2, key.length)
-              .toLowerCase()}-${props[key]}`
-          )
-        : colClasses.push(`Col-${key}-${props[key]}`);
+      if (/hidden/gi.test(key)) {
+        colClasses.push(
+          `Col-${key.substring(0, 6)}-${key
+            .substring(6, key.length)
+            .toLowerCase()}`
+        );
+      } else if (/[A-Z]/g.test(key)) {
+        colClasses.push(
+          `Col-${key.substring(0, 2)}-${key
+            .substring(2, key.length)
+            .toLowerCase()}-${props[key]}`
+        );
+      } else {
+        colClasses.push(`Col-${key}-${props[key]}`);
+      }
     }
   });
 

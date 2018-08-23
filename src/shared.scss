@@ -47,6 +47,16 @@ $grid-columns: 12;
 $header-height: 3.75rem;
 $side-menu-width: 256px;
 
+@function map-get-next(
+  $breakpoint,
+  $breakpoints: $grid-breakpoints,
+  $names: map-keys($grid-breakpoints)
+) {
+  $n: index($names, $breakpoint);
+  $item: if($n < length($breakpoints), nth($breakpoints, $n + 1), null);
+  @return if($n < length($breakpoints), nth($item, 2), null);
+}
+
 @mixin media($width) {
   @if $width > 0 {
     @media only screen and (min-width: $width) {
@@ -54,6 +64,18 @@ $side-menu-width: 256px;
     }
   } @else {
     @content;
+  }
+}
+
+@mixin media-max($width) {
+  @if $width != null {
+    @media only screen and (max-width: $width) {
+      @content;
+    }
+  } @else {
+    @media only screen and (min-width: map-get($grid-breakpoints, xl)) {
+      @content;
+    }
   }
 }
 

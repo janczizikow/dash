@@ -40,6 +40,10 @@ img {
   background-color: $grey;
 }
 
+.lock-scroll {
+  overflow: hidden;
+}
+
 ::selection {
   background-color: $primary;
   color: $white;
