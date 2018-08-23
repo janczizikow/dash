@@ -1,5 +1,16 @@
 @import '../../shared.scss';
 
 .footer {
-  background-color: $white;
+  padding: 5rem 0;
+  color: $white;
+  background-color: $dark;
+
+  &__legal {
+    color: $grey-text;
+  }
+
+  &__link {
+    font-weight: bold;
+    color: $white;
+  }
 }

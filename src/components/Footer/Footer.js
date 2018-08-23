@@ -3,16 +3,17 @@ import { Container, Row } from '../Layout';
 
 import './Footer.css';
 
-const Footer = props => (
+const Footer = () => (
   <div className="footer">
     <Container>
       <Row gutters={false} between>
-        <p>
-          Designed and built by{' '}
+        <p className="footer__legal">
+          &copy; {new Date().getFullYear()} Designed and built by{' '}
           <a
             href="https://www.janczizikow.com"
             rel="noopener noreferrer"
             target="_blank"
+            className="footer__link"
           >
             Jan Czizikow
           </a>
